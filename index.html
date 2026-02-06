@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine 💕</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', sans-serif;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        padding: 40px 60px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        animation: pop 1.2s ease;
+        z-index: 2;
+    }
+
+    h1 {
+        color: #ff4d6d;
+        font-size: 2.3em;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #555;
+        font-size: 1.1em;
+        margin-bottom: 25px;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    button {
+        padding: 12px 30px;
+        font-size: 1em;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #yes {
+        background: #ff4d6d;
+        color: white;
+    }
+
+    #yes:hover {
+        background: #ff1e4d;
+        transform: scale(1.1);
+    }
+
+    #no {
+        background: #ddd;
+        position: relative;
+    }
+
+    .message {
+        display: none;
+        margin-top: 20px;
+        font-size: 1.3em;
+        color: #ff4d6d;
+        animation: pop 0.8s ease;
+    }
+
+    /* Floating hearts */
+    .heart {
+        position: absolute;
+        bottom: -40px;
+        width: 20px;
+        height: 20px;
+        background: #ff4d6d;
+        transform: rotate(45deg);
+        animation: float 6s infinite ease-in;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #ff4d6d;
+        border-radius: 50%;
+    }
+
+    .heart::before {
+        top: -10px;
+        left: 0;
+    }
+
+    .heart::after {
+        left: -10px;
+        top: 0;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0) rotate(45deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-120vh) rotate(45deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes pop {
+        0% { transform: scale(0); }
+        100% { transform: scale(1); }
+    }
+    /* Images row */
+    .images {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+    .images img {
+        max-width: 220px;
+        border-radius: 10px;
+    }</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>💖 Can you be my Valentine? 💖</h1>
+    <p>I promise lots of love and snacks 🍫🌹</p>
+
+    <div class="buttons">
+        <button id="yes">Yes 💘</button>
+        <button id="no">No 🙈</button>
+    </div>
+
+
+
+    <div class="message" id="loveMessage">
+        YAY! I knew it 😍💞  
+        Happy Valentine’s Day! ILY BAM 😘
+    </div>
+
+        <div class="images">
+            <img id="loveImage1" src="love1.jpeg" width="200" alt="Valentine Picture 1" style="display: none;">
+            <img id="loveImage2" src="love2.jpg" width="200" alt="Valentine Picture 2" style="display: none;">
+            <img id="loveImage3" src="love6.jpg" width="200" alt="Valentine Picture 3" style="display: none;">
+        </div>
+
+</div>
+
+<!-- Hearts -->
+<div class="heart" style="left: 10%; animation-delay: 0s;"></div>
+<div class="heart" style="left: 25%; animation-delay: 2s;"></div>
+<div class="heart" style="left: 40%; animation-delay: 4s;"></div>
+<div class="heart" style="left: 60%; animation-delay: 1s;"></div>
+<div class="heart" style="left: 75%; animation-delay: 3s;"></div>
+<div class="heart" style="left: 90%; animation-delay: 5s;"></div>
+
+<script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const message = document.getElementById("loveMessage");
+    const loveImage1 = document.getElementById("loveImage1");
+    const loveImage2 = document.getElementById("loveImage2");
+    const loveImage3 = document.getElementById("loveImage3");
+
+
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * 200 - 100;
+        const y = Math.random() * 200 - 100;
+        noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+        message.style.display = "block";
+        loveImage1.style.display = "block";
+        loveImage2.style.display = "block";
+        loveImage3.style.display = "block";
+    });
+
+
+</script>
+
+</body>
+</html>

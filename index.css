@@ -1,0 +1,9 @@
+#loveImage {
+    display: none;
+    margin-top: 20px;
+    width: 250px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    animation: pop 0.8s ease;
+}
+
